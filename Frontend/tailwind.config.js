@@ -5,7 +5,17 @@ module.exports = {
   ],
 
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        slideRightToLeft: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        slideRightToLeft: 'slideRightToLeft 100s linear infinite',
+      },
+    },
   },
   
   plugins: [],

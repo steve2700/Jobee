@@ -21,7 +21,7 @@ const navlinks = [
 
 function NavBar() {
     return (
-        <div className="flex justify-between px-4 border items-center h-14">
+        <div className="hidden md:flex justify-between px-4 border items-center h-14">
             <span className="text-2xl font-bold">JOBEE</span>
             <div className="flex space-x-8">
                 <div className="flex space-x-16 items-center">
