@@ -27,7 +27,7 @@ function JobSearch() {
     return (
         <div>
             <NavBar />
-            <div className='mx-6 pt-6 space-y-6'>
+            <div className='mx-6 pt-2 space-y-4'>
                 <span className='text-3xl font-bold'>Job Search</span>
                 <div className='mx-10'>
                     <SearchBar />
@@ -137,9 +137,12 @@ function JobSearch() {
                                     <input className='border' type='select' />
                                 </div>
                             </div>
-                            <div className='border h-full md:grid grid-cols-3 gap-4' >
+                            <div className=' h-full md:grid grid-cols-3 gap-4 overflow-scroll scrollbar-hide' >
                                 {
                                     allJobs.map((details) => <Card details={details} /> )
+                                }
+                                {
+                                    allJobs.map((details) => <Card details={details} />) 
                                 }
                             </div>
                         </div>

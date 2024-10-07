@@ -5,6 +5,7 @@ import Landing from './pages/Landing';
 import JobSearch from './pages/JobSearch';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
+import JobDetailView from './pages/JobDetailView';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/job-search' element={<JobSearch />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register'  element={<Register />} />
+          <Route path='/details/:jobId' element={<JobDetailView />} />
         </Routes>
       </Router>
     </div>
