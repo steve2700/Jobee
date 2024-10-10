@@ -3,7 +3,8 @@ const connectDB = require('./config/db');
 const authMiddleware = require('./middlewares/authMiddleware');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const loggerMiddleware = require('./middlewares/loggerMiddleware');
-const authRoutes = require('./routes/authRoutes'); // Import auth routes
+const authRoutes = require('./routes/authRoutes'); //auth route
+const postRoutes = require('./routes/post.routes');
 const app = express();
 const PORT = 3008;
 
@@ -14,8 +15,9 @@ connectDB();
 app.use(express.json());
 app.use(loggerMiddleware); // Log requests
 
-// Define your routes here
+// apis are defined here 
 app.use('/api/auth', authRoutes); // Set up the authentication routes
+app.use('/api/posts', postRoutes); 
 
 // Error handling middleware should be at the end
 app.use(errorMiddleware);
