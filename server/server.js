@@ -3,8 +3,10 @@ const connectDB = require('./config/db');
 const authMiddleware = require('./middlewares/authMiddleware');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const loggerMiddleware = require('./middlewares/loggerMiddleware');
-const authRoutes = require('./routes/authRoutes'); //auth route
+const authRoutes = require('./routes/authRoutes'); // Auth route
 const postRoutes = require('./routes/post.routes');
+const { swaggerUi, swaggerDocs } = require('./docs/swagger'); // Import Swagger setup
+
 const app = express();
 const PORT = 3008;
 
@@ -15,7 +17,10 @@ connectDB();
 app.use(express.json());
 app.use(loggerMiddleware); // Log requests
 
-// apis are defined here 
+// Set up Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs)); // Swagger documentation endpoint
+
+// APIs are defined here
 app.use('/api/auth', authRoutes); // Set up the authentication routes
 app.use('/api/posts', postRoutes); 
 
